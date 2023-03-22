@@ -1,6 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import ChartJS from '@salesforce/resourceUrl/chartjs_v280';
-import { loadScript } from 'lightning/platformResourceLoader';
+import { loadScript } from 'c/resourceLoader';
 import { parseBoolean, sanitize } from 'c/utils';
 import { nanoid } from 'c/nanoid';
 
