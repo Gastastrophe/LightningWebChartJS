@@ -97,3 +97,6 @@ _site/
 
 # SFDX Local Development Server
 .localdevserver/
+
+# target organization
+.sf/config.json
