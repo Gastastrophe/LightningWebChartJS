@@ -5,7 +5,6 @@
  * @description SOQL Data Provider class. It allow to get ChartData using an SOQL query
  */
 public inherited sharing virtual class SOQLDataProvider extends ChartDataProvider {
-  private static final String SOQL_SECURITY_ENFORCED = 'WITH SECURITY_ENFORCED';
   private static final String SOQL_LIMIT_STATEMENT = 'LIMIT';
   private static final String LABEL_ALIAS = 'label';
   private static final String VALUE_ALIAS = 'value';
@@ -18,10 +17,6 @@ public inherited sharing virtual class SOQLDataProvider extends ChartDataProvide
     'Query must contains "' +
     SOQL_LIMIT_STATEMENT +
     '" statement';
-  public static final String QUERY_WITHOUT_SECURITY_ENFORCED_EXCEPTION =
-    'Query must contains "' +
-    SOQL_SECURITY_ENFORCED +
-    '"';
 
   /*******************************************************************************************************
    * @description the SOQL query to execute
@@ -56,12 +51,6 @@ public inherited sharing virtual class SOQLDataProvider extends ChartDataProvide
 
     if (!this.query.containsIgnoreCase(' ' + SOQL_LIMIT_STATEMENT + ' ')) {
       throw new SOQLDataProviderException(QUERY_WITHOUT_LIMIT_EXCEPTION);
-    }
-
-    if (!this.query.containsIgnoreCase(' ' + SOQL_SECURITY_ENFORCED)) {
-      throw new SOQLDataProviderException(
-        QUERY_WITHOUT_SECURITY_ENFORCED_EXCEPTION
-      );
     }
 
     // When building the chart in the app builder and using :recordId in the query

@@ -101,27 +101,6 @@ private class SOQLDataProviderTest {
   }
 
   @isTest
-  static void testGetDataWithoutSecurityEnforcedClause() {
-    Test.startTest();
-    final SOQLDataProvider aSOQLDataProvider = new SOQLDataProvider();
-    aSOQLDataProvider.init(
-      'SELECT StageName label, SUM(Amount) value FROM Opportunity WHERE IsClosed = false GROUP BY StageName LIMIT 10 '
-    );
-    try {
-      aSOQLDataProvider.getData();
-      System.Assert(false, ASSERT_FALSE_MESSAGE);
-    } catch (SOQLDataProvider.SOQLDataProviderException sdpex) {
-      Test.stopTest();
-      System.assertEquals(
-        SOQLDataProvider.QUERY_WITHOUT_SECURITY_ENFORCED_EXCEPTION,
-        sdpex.getMessage(),
-        'Exception message should be ' +
-        SOQLDataProvider.QUERY_WITHOUT_SECURITY_ENFORCED_EXCEPTION
-      );
-    }
-  }
-
-  @isTest
   static void testAppBuilderContext() {
     Test.startTest();
     final SOQLDataProvider aSOQLDataProvider = new SOQLDataProvider();

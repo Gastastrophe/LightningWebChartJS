@@ -4,7 +4,7 @@
  *
  * @description Chart Builder LWC Controller class. Proxy for the ChartDataProvider
  */
-public inherited sharing class ChartBuilderController {
+public without sharing class ChartBuilderController {
   /*******************************************************************************************************
    * @description Not used for this class
    * @param chartDataProviderType String containing the ChartDataProvider type to instanciate to get the data
